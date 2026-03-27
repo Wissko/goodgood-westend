@@ -17,7 +17,6 @@ export default function HomePage() {
           overflow: 'hidden',
         }}
       >
-        {/* Background photo */}
         <Image
           src="/images/maincafe.jpg"
           alt="Barista holding a latte with rosetta art"
@@ -27,17 +26,18 @@ export default function HomePage() {
           style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
 
-        {/* Dark overlay 40% */}
+        {/* Gradient: transparent top → dark bottom (poster magazine style) */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.40)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.65) 100%)',
             zIndex: 1,
           }}
         />
 
+        {/* All content anchored at bottom-left */}
         <div
           style={{
             position: 'relative',
@@ -47,7 +47,7 @@ export default function HomePage() {
             justifyContent: 'flex-end',
             minHeight: '100svh',
             padding: 'clamp(1.5rem, 5vw, 4rem)',
-            paddingTop: 'clamp(6rem, 10vw, 9rem)',
+            paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
           }}
         >
           <motion.h1
@@ -57,13 +57,13 @@ export default function HomePage() {
             style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(5rem, 16vw, 14rem)',
-              lineHeight: 0.92,
+              fontSize: 'clamp(5.5rem, 18vw, 16rem)',
+              lineHeight: 0.88,
               color: '#FFFFFF',
-              letterSpacing: '-0.025em',
+              letterSpacing: '-0.03em',
             }}
           >
-            Good
+            Good /
             <br />
             Good
           </motion.h1>
@@ -73,50 +73,35 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              marginTop: '1.5rem',
+              marginTop: '1.75rem',
               fontFamily: 'var(--font-inter-var), sans-serif',
               fontWeight: 300,
-              fontSize: 'clamp(0.75rem, 1.4vw, 1rem)',
-              letterSpacing: '0.2em',
+              fontSize: 'clamp(0.7rem, 1.3vw, 0.9rem)',
+              letterSpacing: '0.24em',
               textTransform: 'uppercase',
-              color: '#FFFFFF',
+              color: 'rgba(255,255,255,0.8)',
             }}
           >
             West End · Brisbane
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            style={{
-              marginTop: '0.75rem',
-              fontFamily: 'var(--font-inter-var), sans-serif',
-              fontWeight: 400,
-              fontSize: '0.95rem',
-              color: '#F0C9A0',
-            }}
-          >
-            Bold flavours, great vibes, better coffee.
-          </motion.p>
-
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.42, duration: 0.4 }}
-            style={{ marginTop: '2.5rem', paddingBottom: '3rem' }}
+            transition={{ delay: 0.35, duration: 0.45 }}
+            style={{ marginTop: '2rem' }}
           >
             <Link
               href="/menu"
               style={{
                 display: 'inline-block',
-                padding: '0.85rem 2.25rem',
+                padding: '0.9rem 2.5rem',
                 backgroundColor: '#FFFFFF',
                 color: '#2C2C2C',
                 fontFamily: 'var(--font-syne-var), sans-serif',
                 fontWeight: 700,
-                fontSize: '0.62rem',
-                letterSpacing: '0.22em',
+                fontSize: '0.6rem',
+                letterSpacing: '0.24em',
                 textTransform: 'uppercase',
                 transition: 'background-color 0.2s, color 0.2s',
               }}
@@ -135,75 +120,111 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Ambiance strip ── */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        style={{ position: 'relative', height: '50vh', overflow: 'hidden' }}
+      {/* ── Section 2 — Split 50/50 ── */}
+      <section
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }}
       >
-        <Image
-          src="/images/cafebun.jpg"
-          alt="Cinnamon roll and latte flat lay"
-          fill
-          unoptimized
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
-        />
-        <div
+        {/* Left: sage colour block — text as design element */}
+        <motion.div
+          initial={{ opacity: 0, x: -28 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.25)',
+            backgroundColor: '#A8B5A2',
             display: 'flex',
-            alignItems: 'flex-end',
-            padding: 'clamp(1.5rem, 4vw, 3rem)',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'clamp(2rem, 6vw, 5rem)',
+            aspectRatio: '1',
           }}
         >
           <p
             style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 300,
-              fontStyle: 'italic',
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)',
-              color: '#FFFFFF',
-              letterSpacing: '0.04em',
+              fontWeight: 800,
+              fontSize: 'clamp(1.2rem, 2.8vw, 2.25rem)',
+              lineHeight: 1.2,
+              color: '#2C2C2C',
+              textAlign: 'center',
+              letterSpacing: '-0.02em',
             }}
           >
-            A morning ritual. Every day.
+            Bold flavours.
+            <br />
+            Great vibes.
+            <br />
+            Better coffee.
           </p>
-        </div>
-      </motion.section>
+        </motion.div>
 
-      {/* ── Info bar ── */}
+        {/* Right: cafebun.jpg square — no overlay, clean */}
+        <motion.div
+          initial={{ opacity: 0, x: 28 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}
+        >
+          <Image
+            src="/images/cafebun.jpg"
+            alt="Cinnamon roll and latte flat lay"
+            fill
+            unoptimized
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+        </motion.div>
+      </section>
+
+      {/* ── Section 3 — Info bar ── */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         style={{
-          backgroundColor: '#A8B5A2',
-          padding: 'clamp(2rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem)',
+          position: 'relative',
+          overflow: 'hidden',
+          backgroundColor: '#2C2C2C',
+          padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem)',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: '2rem',
+          gap: '2.5rem',
         }}
       >
+        {/* Grain texture — 12% opacity */}
+        <div
+          aria-hidden="true"
+          style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
+        >
+          <Image
+            src="/images/grainecafe.jpg"
+            alt=""
+            fill
+            unoptimized
+            style={{ objectFit: 'cover', objectPosition: 'center', opacity: 0.12 }}
+          />
+        </div>
+
         {[
           { label: 'Coffee', value: 'Tim Adams specialty coffee' },
           { label: 'Find Us', value: '2/24 Beesley St, West End' },
           { label: 'Friday', value: '6:00 am – 1:30 pm' },
         ].map(({ label, value }) => (
-          <div key={label}>
+          <div key={label} style={{ position: 'relative', zIndex: 1 }}>
             <p
               style={{
                 fontFamily: 'var(--font-syne-var), sans-serif',
                 fontWeight: 700,
-                fontSize: '0.6rem',
-                letterSpacing: '0.24em',
+                fontSize: '0.58rem',
+                letterSpacing: '0.26em',
                 textTransform: 'uppercase',
-                color: '#2C2C2C',
-                marginBottom: '0.4rem',
+                color: '#EDE8DF',
+                opacity: 0.5,
+                marginBottom: '0.5rem',
               }}
             >
               {label}
@@ -212,8 +233,9 @@ export default function HomePage() {
               style={{
                 fontFamily: 'var(--font-inter-var), sans-serif',
                 fontWeight: 300,
-                color: '#2C2C2C',
-                fontSize: '0.9rem',
+                color: '#EDE8DF',
+                fontSize: '0.95rem',
+                lineHeight: 1.55,
               }}
             >
               {value}
