@@ -26,18 +26,18 @@ export default function HomePage() {
           style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
 
-        {/* Gradient: transparent top → dark bottom (poster magazine style) */}
+        {/* Gradient: transparent top → dark bottom */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.65) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 35%, rgba(0,0,0,0.70) 100%)',
             zIndex: 1,
           }}
         />
 
-        {/* All content anchored at bottom-left */}
+        {/* Content anchored at bottom-left */}
         <div
           style={{
             position: 'relative',
@@ -46,8 +46,9 @@ export default function HomePage() {
             flexDirection: 'column',
             justifyContent: 'flex-end',
             minHeight: '100svh',
-            padding: 'clamp(1.5rem, 5vw, 4rem)',
-            paddingBottom: 'clamp(2.5rem, 6vw, 5rem)',
+            padding: 'clamp(1.25rem, 5vw, 4rem)',
+            paddingBottom: 'clamp(2rem, 6vw, 5rem)',
+            paddingTop: '5rem',
           }}
         >
           <motion.h1
@@ -57,10 +58,11 @@ export default function HomePage() {
             style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(5.5rem, 18vw, 16rem)',
+              fontSize: 'clamp(4rem, 16vw, 16rem)',
               lineHeight: 0.88,
               color: '#FFFFFF',
               letterSpacing: '-0.03em',
+              wordBreak: 'keep-all',
             }}
           >
             Good /
@@ -73,11 +75,11 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.18, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              marginTop: '1.75rem',
+              marginTop: '1.5rem',
               fontFamily: 'var(--font-inter-var), sans-serif',
               fontWeight: 300,
-              fontSize: 'clamp(0.7rem, 1.3vw, 0.9rem)',
-              letterSpacing: '0.24em',
+              fontSize: 'clamp(0.65rem, 1.3vw, 0.9rem)',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.8)',
             }}
@@ -89,21 +91,22 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.45 }}
-            style={{ marginTop: '2rem' }}
+            style={{ marginTop: '1.75rem' }}
           >
             <Link
               href="/menu"
               style={{
                 display: 'inline-block',
-                padding: '0.9rem 2.5rem',
+                padding: '0.85rem 2.25rem',
                 backgroundColor: '#FFFFFF',
                 color: '#2C2C2C',
                 fontFamily: 'var(--font-syne-var), sans-serif',
                 fontWeight: 700,
                 fontSize: '0.6rem',
-                letterSpacing: '0.24em',
+                letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 transition: 'background-color 0.2s, color 0.2s',
+                whiteSpace: 'nowrap',
               }}
               onMouseEnter={(e) => {
                 ;(e.currentTarget as HTMLElement).style.backgroundColor = '#C4724A'
@@ -120,16 +123,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Section 2 — Split 50/50 ── */}
+      {/* ── Section 2 — Split (stacked on mobile, side-by-side on desktop) ── */}
       <section
         style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
         }}
       >
-        {/* Left: sage colour block — text as design element */}
+        {/* Left: sage colour block */}
         <motion.div
-          initial={{ opacity: 0, x: -28 }}
+          initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -138,15 +141,15 @@ export default function HomePage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 'clamp(2rem, 6vw, 5rem)',
-            aspectRatio: '1',
+            padding: 'clamp(3rem, 8vw, 5rem) clamp(1.5rem, 5vw, 4rem)',
+            minHeight: 'clamp(260px, 40vw, 480px)',
           }}
         >
           <p
             style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(1.2rem, 2.8vw, 2.25rem)',
+              fontSize: 'clamp(1.4rem, 3.5vw, 2.25rem)',
               lineHeight: 1.2,
               color: '#2C2C2C',
               textAlign: 'center',
@@ -161,13 +164,17 @@ export default function HomePage() {
           </p>
         </motion.div>
 
-        {/* Right: cafebun.jpg square — no overlay, clean */}
+        {/* Right: cafebun.jpg */}
         <motion.div
-          initial={{ opacity: 0, x: 28 }}
+          initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}
+          style={{
+            position: 'relative',
+            minHeight: 'clamp(260px, 40vw, 480px)',
+            overflow: 'hidden',
+          }}
         >
           <Image
             src="/images/cafebun.jpg"
@@ -191,15 +198,11 @@ export default function HomePage() {
           backgroundColor: '#2C2C2C',
           padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem)',
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
           gap: '2.5rem',
         }}
       >
-        {/* Grain texture — 12% opacity */}
-        <div
-          aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}
-        >
+        <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
           <Image
             src="/images/grainecafe.jpg"
             alt=""
@@ -215,29 +218,25 @@ export default function HomePage() {
           { label: 'Friday', value: '6:00 am – 1:30 pm' },
         ].map(({ label, value }) => (
           <div key={label} style={{ position: 'relative', zIndex: 1 }}>
-            <p
-              style={{
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 700,
-                fontSize: '0.58rem',
-                letterSpacing: '0.26em',
-                textTransform: 'uppercase',
-                color: '#EDE8DF',
-                opacity: 0.5,
-                marginBottom: '0.5rem',
-              }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-syne-var), sans-serif',
+              fontWeight: 700,
+              fontSize: '0.58rem',
+              letterSpacing: '0.26em',
+              textTransform: 'uppercase',
+              color: '#EDE8DF',
+              opacity: 0.5,
+              marginBottom: '0.5rem',
+            }}>
               {label}
             </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-inter-var), sans-serif',
-                fontWeight: 300,
-                color: '#EDE8DF',
-                fontSize: '0.95rem',
-                lineHeight: 1.55,
-              }}
-            >
+            <p style={{
+              fontFamily: 'var(--font-inter-var), sans-serif',
+              fontWeight: 300,
+              color: '#EDE8DF',
+              fontSize: '0.95rem',
+              lineHeight: 1.55,
+            }}>
               {value}
             </p>
           </div>
