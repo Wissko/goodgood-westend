@@ -155,11 +155,15 @@ export default function StoryPage() {
         </div>
       </section>
 
-      {/* ── The Craft — citation.jpg full-width ── */}
-      <section
+      {/* ── The Craft — citation.jpg full-width, image pure ── */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{
           position: 'relative',
-          height: 'clamp(280px, 60vw, 640px)',
+          height: 'clamp(320px, 65vw, 680px)',
           overflow: 'hidden',
         }}
       >
@@ -168,47 +172,15 @@ export default function StoryPage() {
           alt="Floured dough balls — Japanese milk bun technique"
           fill
           unoptimized
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 30%' }}
         />
-        {/* Overlay : léger en haut, fort en bas pour lisibilité du texte */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.85) 100%)',
-          }}
-        />
-
-        {/* Caption text pinned bottom-left */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55 }}
-          style={{
-            position: 'absolute',
-            bottom: 'clamp(1.5rem, 4vw, 3.5rem)',
-            left: 'clamp(1.5rem, 5vw, 4rem)',
-            right: 'clamp(1.5rem, 5vw, 4rem)',
-            zIndex: 1,
-          }}
-        >
-          <p
-            style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 800,
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)',
-              lineHeight: 1.1,
-              color: '#FFFFFF',
-              letterSpacing: '-0.02em',
-              maxWidth: '560px',
-            }}
-          >
-            Japanese milk bun technique
-          </p>
-        </motion.div>
-      </section>
+        {/* Vignette subtile aux bords uniquement — met le focus au centre */}
+        <div aria-hidden="true" style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.28) 100%)',
+          pointerEvents: 'none',
+        }} />
+      </motion.section>
 
       {/* ── The Technique — two images side by side, no title ── */}
       <section>
@@ -231,43 +203,11 @@ export default function StoryPage() {
           >
             <Image
               src="/images/japanesexplication.jpg"
-              alt="Shokupan buns with cream and jam — explanatory"
+              alt="Shokupan buns with cream and jam"
               fill
               unoptimized
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ objectFit: 'cover', objectPosition: 'center 20%' }}
             />
-            {/* Overlay gradient + caption lisible */}
-            <div aria-hidden="true" style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.78) 100%)',
-            }} />
-            <div style={{
-              position: 'absolute',
-              bottom: 'clamp(1rem, 3vw, 2rem)',
-              left: 'clamp(1rem, 3vw, 2rem)',
-              right: 'clamp(1rem, 3vw, 2rem)',
-              zIndex: 1,
-            }}>
-              <p style={{
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 700,
-                fontSize: 'clamp(0.8rem, 1.8vw, 1.1rem)',
-                color: '#FFFFFF',
-                lineHeight: 1.3,
-                letterSpacing: '0.01em',
-              }}>
-                Shokupan — Japanese milk bun
-              </p>
-              <p style={{
-                marginTop: '0.3rem',
-                fontFamily: 'var(--font-inter-var), sans-serif',
-                fontWeight: 300,
-                fontSize: 'clamp(0.72rem, 1.3vw, 0.85rem)',
-                color: 'rgba(255,255,255,0.75)',
-              }}>
-                Lighter, softer, melt-in-your-mouth
-              </p>
-            </div>
           </motion.div>
 
           <motion.div
