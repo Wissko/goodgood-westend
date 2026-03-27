@@ -31,63 +31,63 @@ export default function GoodGoodMenu() {
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    if (open) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
+    }
   }, [open])
 
   return (
     <>
-      {/* Trigger — pill top-left, toujours visible */}
+      {/* Trigger pill — fixed top-left, always visible */}
       <motion.button
         onClick={() => setOpen(true)}
         aria-label="Open navigation"
         aria-expanded={open}
-        animate={{ opacity: open ? 0 : 1, pointerEvents: open ? 'none' : 'auto', y: open ? -8 : 0 }}
-        transition={{ duration: 0.25 }}
+        animate={{ opacity: open ? 0 : 1, pointerEvents: open ? 'none' : 'auto' }}
+        transition={{ duration: 0.2 }}
         style={{
           ...syne,
           position: 'fixed',
-          top: '1.25rem',
-          left: '1.25rem',
-          zIndex: 50,
+          top: '1rem',
+          left: '1rem',
+          zIndex: 200,
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
-          gap: '12px',
+          gap: '10px',
           background: '#2C2C2C',
           border: '1.5px solid rgba(196, 114, 74, 0.5)',
           borderRadius: '999px',
-          padding: '10px 18px',
-          boxShadow: '0 2px 16px rgba(0,0,0,0.18)',
+          padding: '9px 16px',
+          boxShadow: '0 2px 16px rgba(0,0,0,0.22)',
+          touchAction: 'manipulation',
+          WebkitTapHighlightColor: 'transparent',
         }}
       >
-        {/* GG mark */}
-        <span style={{
-          ...syne,
-          fontSize: '13px',
-          color: '#C4724A',
-          letterSpacing: '0.05em',
-          lineHeight: 1,
-        }}>
-          GG
-        </span>
-        {/* Séparateur */}
-        <span style={{ display: 'block', width: '1px', height: '14px', background: 'rgba(237,232,223,0.2)' }} />
-        {/* Menu text */}
+        <span style={{ ...syne, fontSize: '13px', color: '#C4724A', letterSpacing: '0.05em', lineHeight: 1 }}>GG</span>
+        <span style={{ display: 'block', width: '1px', height: '13px', background: 'rgba(237,232,223,0.25)' }} />
         <span style={{
           fontFamily: 'var(--font-syne-var), sans-serif',
           fontWeight: 700,
           fontSize: '10px',
-          letterSpacing: '0.22em',
+          letterSpacing: '0.2em',
           textTransform: 'uppercase',
           color: '#EDE8DF',
-        }}>
-          Menu
-        </span>
-        {/* Deux traits */}
+        }}>Menu</span>
         <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          <span style={{ display: 'block', height: '1.5px', width: '16px', background: '#EDE8DF' }} />
-          <span style={{ display: 'block', height: '1.5px', width: '10px', background: '#EDE8DF' }} />
+          <span style={{ display: 'block', height: '1.5px', width: '15px', background: '#EDE8DF' }} />
+          <span style={{ display: 'block', height: '1.5px', width: '9px', background: '#EDE8DF' }} />
         </span>
       </motion.button>
 
@@ -98,46 +98,58 @@ export default function GoodGoodMenu() {
             initial={{ clipPath: 'inset(0 0 100% 0)' }}
             animate={{ clipPath: 'inset(0 0 0% 0)' }}
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
             style={{
               position: 'fixed',
               inset: 0,
-              zIndex: 40,
+              zIndex: 190,
               backgroundColor: '#2C2C2C',
               display: 'flex',
               flexDirection: 'column',
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch',
             }}
             onClick={() => setOpen(false)}
           >
+            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               aria-label="Close navigation"
               style={{
                 position: 'absolute',
-                top: '1.5rem',
-                left: '1.5rem',
+                top: '1rem',
+                right: '1.25rem',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                padding: '8px',
+                padding: '10px',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.75rem',
+                gap: '0.6rem',
+                touchAction: 'manipulation',
+                WebkitTapHighlightColor: 'transparent',
+                zIndex: 10,
               }}
             >
-              <span style={{ fontSize: '0.58rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#EDE8DF', fontFamily: 'var(--font-syne-var)', fontWeight: 700 }}>
-                Close
-              </span>
-              <span style={{ display: 'block', width: '1.25rem', height: '1px', backgroundColor: '#EDE8DF' }} />
+              <span style={{
+                fontSize: '0.58rem',
+                letterSpacing: '0.26em',
+                textTransform: 'uppercase',
+                color: '#EDE8DF',
+                fontFamily: 'var(--font-syne-var)',
+                fontWeight: 700,
+              }}>Close</span>
+              <span style={{ display: 'block', width: '1.1rem', height: '1px', backgroundColor: '#EDE8DF' }} />
             </button>
 
+            {/* Nav links */}
             <nav
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
-                height: '100%',
-                padding: '0 2.5rem',
+                flex: 1,
+                padding: 'clamp(5rem, 12vw, 8rem) clamp(1.5rem, 6vw, 3.5rem) clamp(3rem, 8vw, 5rem)',
                 gap: '0',
               }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
@@ -145,27 +157,22 @@ export default function GoodGoodMenu() {
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.href}
-                  initial={{ opacity: 0, x: -32 }}
+                  initial={{ opacity: 0, x: -28 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.06 * i + 0.15, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ delay: 0.06 * i + 0.1, duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ borderBottom: '1px solid rgba(237,232,223,0.08)' }}
                 >
                   <Link
                     href={link.href}
                     style={{
                       ...syne,
                       display: 'block',
-                      fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)',
-                      lineHeight: 1.15,
+                      fontSize: 'clamp(2rem, 8vw, 5.5rem)',
+                      lineHeight: 1.2,
+                      padding: 'clamp(0.6rem, 2vw, 1rem) 0',
                       color: pathname === link.href ? '#C4724A' : '#EDE8DF',
                       transition: 'color 0.15s',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (pathname !== link.href)
-                        (e.currentTarget as HTMLElement).style.color = '#A8B5A2'
-                    }}
-                    onMouseLeave={(e) => {
-                      if (pathname !== link.href)
-                        (e.currentTarget as HTMLElement).style.color = '#EDE8DF'
+                      WebkitTapHighlightColor: 'transparent',
                     }}
                   >
                     {link.label}
@@ -174,16 +181,16 @@ export default function GoodGoodMenu() {
               ))}
             </nav>
 
+            {/* Bottom info */}
             <div
               style={{
-                position: 'absolute',
-                bottom: '2rem',
-                left: '2.5rem',
+                padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 6vw, 3.5rem)',
                 color: '#A8B5A2',
                 fontFamily: 'var(--font-inter-var), sans-serif',
                 fontWeight: 300,
-                fontSize: '0.82rem',
+                fontSize: '0.8rem',
                 lineHeight: 1.7,
+                borderTop: '1px solid rgba(237,232,223,0.08)',
               }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
             >
