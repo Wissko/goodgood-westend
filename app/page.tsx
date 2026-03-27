@@ -58,11 +58,12 @@ export default function HomePage() {
             style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(4rem, 16vw, 16rem)',
+              fontSize: 'clamp(3rem, 13vw, 14rem)',
               lineHeight: 0.88,
               color: '#FFFFFF',
               letterSpacing: '-0.03em',
               wordBreak: 'keep-all',
+              overflow: 'hidden',
             }}
           >
             Good /
