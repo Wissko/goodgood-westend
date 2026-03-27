@@ -170,13 +170,13 @@ export default function StoryPage() {
           unoptimized
           style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
-        {/* Gradient only on lower half — editorial caption style */}
+        {/* Overlay : léger en haut, fort en bas pour lisibilité du texte */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.72) 100%)',
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.85) 100%)',
           }}
         />
 
@@ -236,6 +236,38 @@ export default function StoryPage() {
               unoptimized
               style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
+            {/* Overlay gradient + caption lisible */}
+            <div aria-hidden="true" style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 30%, rgba(0,0,0,0.78) 100%)',
+            }} />
+            <div style={{
+              position: 'absolute',
+              bottom: 'clamp(1rem, 3vw, 2rem)',
+              left: 'clamp(1rem, 3vw, 2rem)',
+              right: 'clamp(1rem, 3vw, 2rem)',
+              zIndex: 1,
+            }}>
+              <p style={{
+                fontFamily: 'var(--font-syne-var), sans-serif',
+                fontWeight: 700,
+                fontSize: 'clamp(0.8rem, 1.8vw, 1.1rem)',
+                color: '#FFFFFF',
+                lineHeight: 1.3,
+                letterSpacing: '0.01em',
+              }}>
+                Shokupan — Japanese milk bun
+              </p>
+              <p style={{
+                marginTop: '0.3rem',
+                fontFamily: 'var(--font-inter-var), sans-serif',
+                fontWeight: 300,
+                fontSize: 'clamp(0.72rem, 1.3vw, 0.85rem)',
+                color: 'rgba(255,255,255,0.75)',
+              }}>
+                Lighter, softer, melt-in-your-mouth
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
