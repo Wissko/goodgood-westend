@@ -23,11 +23,29 @@ const BAKERY: MenuItem[] = [
 ]
 
 const LIGHT_LUNCH: MenuItem[] = [
-  { name: 'Focaccia', desc: 'Herbs, olive oil, seasonal toppings — served with latte or filter' },
+  { name: 'Focaccia', desc: 'Herbs, olive oil, seasonal toppings' },
   { name: 'Deli Sandwich', desc: "House-sliced meats & cheeses — today's build at the counter" },
   { name: 'Daily Salad', desc: 'Fresh, seasonal, changes every morning' },
   { name: 'Lasagne Maison', desc: 'Made in-house, served warm' },
 ]
+
+function SectionTitle({ children, color = '#2C2C2C' }: { children: React.ReactNode; color?: string }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '2rem' }}>
+      <div style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.2rem' }} />
+      <h2 style={{
+        fontFamily: 'var(--font-syne-var), sans-serif',
+        fontWeight: 800,
+        fontSize: 'clamp(1.8rem, 5vw, 3.2rem)',
+        lineHeight: 1,
+        color,
+        letterSpacing: '-0.02em',
+      }}>
+        {children}
+      </h2>
+    </div>
+  )
+}
 
 function MenuList({ items, borderColor = '#EDE8DF' }: { items: MenuItem[]; borderColor?: string }) {
   return (
@@ -35,32 +53,16 @@ function MenuList({ items, borderColor = '#EDE8DF' }: { items: MenuItem[]; borde
       {items.map((item, i) => (
         <motion.li
           key={item.name}
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          style={{ padding: '1rem 0', borderBottom: `1px solid ${borderColor}` }}
+          style={{ padding: '0.9rem 0', borderBottom: `1px solid ${borderColor}` }}
         >
-          <p
-            style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 700,
-              fontSize: '1rem',
-              color: '#2C2C2C',
-              marginBottom: '0.2rem',
-            }}
-          >
+          <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>
             {item.name}
           </p>
-          <p
-            style={{
-              fontFamily: 'var(--font-inter-var), sans-serif',
-              fontWeight: 300,
-              fontSize: '0.875rem',
-              color: '#2C2C2C',
-              opacity: 0.65,
-            }}
-          >
+          <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.65 }}>
             {item.desc}
           </p>
         </motion.li>
@@ -72,285 +74,130 @@ function MenuList({ items, borderColor = '#EDE8DF' }: { items: MenuItem[]; borde
 export default function MenuPage() {
   return (
     <main style={{ minHeight: '100vh', backgroundColor: '#F7F4EF' }}>
+      {/* Responsive styles */}
+      <style>{`
+        .menu-coffee-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          border-top: 1px solid #EDE8DF;
+        }
+        .menu-coffee-photo {
+          position: relative;
+          height: clamp(240px, 55vw, 480px);
+          overflow: hidden;
+          order: -1;
+        }
+        .menu-bites-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          max-width: 900px;
+        }
+        .menu-bakery-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+        }
+        .menu-bakery-list {
+          grid-column: 1 / -1;
+        }
+        @media (min-width: 640px) {
+          .menu-coffee-grid {
+            grid-template-columns: 40% 60%;
+          }
+          .menu-coffee-photo {
+            height: 500px;
+            order: 0;
+          }
+          .menu-bites-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+          }
+          .menu-bakery-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+          }
+          .menu-bakery-list {
+            grid-column: auto;
+          }
+        }
+      `}</style>
 
-      {/* ── Page header — editorial marker ── */}
-      <div
-        style={{
-          backgroundColor: '#F7F4EF',
-          padding: 'clamp(6rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem)',
-        }}
-      >
+      {/* ── Header ── */}
+      <div style={{ backgroundColor: '#F7F4EF', padding: 'clamp(5.5rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 4vw, 3rem)' }}>
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}
+          style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}
         >
-          {/* Vertical terracotta bar — editorial marker */}
-          <div
-            aria-hidden="true"
-            style={{
-              width: '4px',
-              backgroundColor: '#C4724A',
-              alignSelf: 'stretch',
-              flexShrink: 0,
-              marginTop: '0.3rem',
-            }}
-          />
+          <div aria-hidden="true" style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.3rem' }} />
           <div>
-            <h1
-              style={{
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 800,
-                fontSize: 'clamp(4rem, 12vw, 10rem)',
-                lineHeight: 0.9,
-                color: '#2C2C2C',
-                letterSpacing: '-0.03em',
-              }}
-            >
-              The /
-              <br />
-              Menu
+            <h1 style={{
+              fontFamily: 'var(--font-syne-var), sans-serif',
+              fontWeight: 800,
+              fontSize: 'clamp(3.5rem, 12vw, 10rem)',
+              lineHeight: 0.9,
+              color: '#2C2C2C',
+              letterSpacing: '-0.03em',
+            }}>
+              The /<br />Menu
             </h1>
-            <p
-              style={{
-                marginTop: '1.5rem',
-                fontFamily: 'var(--font-inter-var), sans-serif',
-                fontWeight: 300,
-                fontSize: '0.88rem',
-                color: '#C4724A',
-                letterSpacing: '0.05em',
-              }}
-            >
+            <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#C4724A', letterSpacing: '0.04em' }}>
               Tim Adams specialty coffee · house-made food · deli counter
             </p>
           </div>
         </motion.div>
       </div>
 
-      {/* ── Coffee — 40/60 split ── */}
-      <section
-        style={{
-          borderTop: '1px solid #EDE8DF',
-          display: 'grid',
-          gridTemplateColumns: '40% 60%',
-        }}
-      >
-        {/* Text 40% */}
+      {/* ── Coffee ── */}
+      <section className="menu-coffee-grid">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3rem)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-          }}
+          style={{ padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3rem)' }}
         >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            <div style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.25rem' }} />
-            <h2
-              style={{
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 800,
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                lineHeight: 1,
-                color: '#C4724A',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Coffee
-            </h2>
-          </div>
+          <SectionTitle color="#C4724A">Coffee</SectionTitle>
           <MenuList items={COFFEE} />
         </motion.div>
-
-        {/* Photo 60% — fixed 500px height, no overlay */}
         <motion.div
+          className="menu-coffee-photo"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          style={{ position: 'relative', height: '500px', overflow: 'hidden' }}
         >
-          <Image
-            src="/images/croissantcafe.jpg"
-            alt="Butter croissant paired with a latte swan art"
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+          <Image src="/images/croissantcafe.jpg" alt="Croissant and latte" fill unoptimized style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </motion.div>
       </section>
 
-      {/* ── Morning Bites — 2-col grid ── */}
-      <section
-        style={{
-          borderTop: '1px solid #EDE8DF',
-          padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 5vw, 4rem)',
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '2rem' }}>
-          <div style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.25rem' }} />
-          <h2
-            style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 800,
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-              lineHeight: 1,
-              color: '#2C2C2C',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Morning Bites
-          </h2>
-        </div>
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '1.5rem',
-            maxWidth: '900px',
-          }}
-        >
-          {/* Avocado toast */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
+      {/* ── Morning Bites ── */}
+      <section style={{ borderTop: '1px solid #EDE8DF', padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 4rem)' }}>
+        <SectionTitle>Morning Bites</SectionTitle>
+        <div className="menu-bites-grid">
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
             <div style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
-              <Image
-                src="/images/avocadotoast.jpg"
-                alt="Avocado toast on sourdough with feta and balsamic"
-                fill
-                unoptimized
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
-              />
+              <Image src="/images/avocadotoast.jpg" alt="Avocado toast" fill unoptimized style={{ objectFit: 'cover' }} />
             </div>
-            <p
-              style={{
-                marginTop: '0.85rem',
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: '#2C2C2C',
-                marginBottom: '0.25rem',
-              }}
-            >
-              Avocado Toast
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-inter-var), sans-serif',
-                fontWeight: 300,
-                fontSize: '0.85rem',
-                color: '#2C2C2C',
-                opacity: 0.65,
-              }}
-            >
-              Sourdough, smashed avo, feta, balsamic, seeds
-            </p>
+            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Avocado Toast</p>
+            <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Sourdough, smashed avo, feta, balsamic, seeds</p>
           </motion.div>
 
-          {/* Bacon Egg Cheese */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08, duration: 0.4 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08, duration: 0.4 }}>
             <div style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
-              <Image
-                src="/images/burger.jpg"
-                alt="Bacon, egg and cheese on brioche sesame bun with runny yolk"
-                fill
-                unoptimized
-                style={{ objectFit: 'cover', objectPosition: 'center' }}
-              />
+              <Image src="/images/burger.jpg" alt="Bacon egg cheese" fill unoptimized style={{ objectFit: 'cover' }} />
             </div>
-            <p
-              style={{
-                marginTop: '0.85rem',
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: '#2C2C2C',
-                marginBottom: '0.25rem',
-              }}
-            >
-              Bacon, Egg &amp; Cheese
-            </p>
-            <p
-              style={{
-                fontFamily: 'var(--font-inter-var), sans-serif',
-                fontWeight: 300,
-                fontSize: '0.85rem',
-                color: '#2C2C2C',
-                opacity: 0.65,
-              }}
-            >
-              Brioche sesame bun, runny yolk, house-made sauce
-            </p>
+            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Bacon, Egg &amp; Cheese</p>
+            <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Brioche sesame bun, runny yolk, house-made sauce</p>
           </motion.div>
 
-          {/* House-Made Oats — text cell, same height as image cells */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.16, duration: 0.4 }}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: '#EDE8DF',
-                aspectRatio: '1',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-                textAlign: 'center',
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: 'var(--font-syne-var), sans-serif',
-                  fontWeight: 800,
-                  fontSize: 'clamp(1rem, 1.8vw, 1.4rem)',
-                  color: '#2C2C2C',
-                  lineHeight: 1.2,
-                  marginBottom: '0.5rem',
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                House-Made Oats
-              </p>
-              <p
-                style={{
-                  fontFamily: 'var(--font-inter-var), sans-serif',
-                  fontWeight: 300,
-                  fontSize: '0.85rem',
-                  color: '#2C2C2C',
-                  opacity: 0.65,
-                  lineHeight: 1.5,
-                }}
-              >
-                Slow-cooked, seasonal fruit, honey
-              </p>
-            </div>
-            {/* Spacer below cell matches text area below images */}
-            <div style={{ marginTop: '0.85rem', visibility: 'hidden' }}>
-              <p style={{ fontFamily: 'var(--font-syne-var)', fontWeight: 700, fontSize: '1rem' }}>—</p>
-              <p style={{ fontFamily: 'var(--font-inter-var)', fontWeight: 300, fontSize: '0.85rem' }}>—</p>
+          <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.14, duration: 0.4 }}>
+            <div style={{ aspectRatio: '1', backgroundColor: '#EDE8DF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1.5rem, 4vw, 2.5rem)', textAlign: 'center' }}>
+              <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 800, fontSize: 'clamp(0.95rem, 2.5vw, 1.3rem)', color: '#2C2C2C', marginBottom: '0.5rem', lineHeight: 1.2 }}>House-Made Oats</p>
+              <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Slow-cooked, seasonal fruit, honey</p>
             </div>
           </motion.div>
         </div>
@@ -358,104 +205,28 @@ export default function MenuPage() {
 
       {/* ── From the Bakery ── */}
       <section style={{ borderTop: '1px solid #EDE8DF' }}>
-        {/* Full-width pain au chocolat — no overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{
-            position: 'relative',
-            height: 'clamp(200px, 40vw, 480px)',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src="/images/cafepainchocolat.jpg"
-            alt="Viennoiserie board: almond croissant, pain au chocolat, brioche"
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+          style={{ position: 'relative', height: 'clamp(180px, 40vw, 480px)', overflow: 'hidden' }}>
+          <Image src="/images/cafepainchocolat.jpg" alt="Viennoiserie board" fill unoptimized style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </motion.div>
 
-        {/* Section title */}
-        <div
-          style={{
-            padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 5vw, 4rem) 0',
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            <div style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.25rem' }} />
-            <h2
-              style={{
-                fontFamily: 'var(--font-syne-var), sans-serif',
-                fontWeight: 800,
-                fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-                lineHeight: 1,
-                color: '#2C2C2C',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              From the Bakery
-            </h2>
-          </div>
+        <div style={{ padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 5vw, 4rem) 0' }}>
+          <SectionTitle>From the Bakery</SectionTitle>
         </div>
 
-        {/* Grid: cinnamon (sq) / instead (sq) / menu list */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.5rem',
-            padding: '0 clamp(1.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem)',
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}
-          >
-            <Image
-              src="/images/cinamon.jpg"
-              alt="Three pistachio cinnamon rolls on a silver tray"
-              fill
-              unoptimized
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-            />
+        <div className="menu-bakery-grid">
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.4 }}
+            style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
+            <Image src="/images/cinamon.jpg" alt="Cinnamon rolls" fill unoptimized style={{ objectFit: 'cover' }} />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08, duration: 0.4 }}
-            style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}
-          >
-            <Image
-              src="/images/instead.jpg"
-              alt="Iced cruffin with citrus cream filling"
-              fill
-              unoptimized
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-            />
+          <motion.div initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.08, duration: 0.4 }}
+            style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
+            <Image src="/images/instead.jpg" alt="Cruffin" fill unoptimized style={{ objectFit: 'cover' }} />
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.16, duration: 0.4 }}
-            style={{
-              backgroundColor: '#EDE8DF',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-            }}
-          >
+          <motion.div className="menu-bakery-list" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.14, duration: 0.4 }}
+            style={{ backgroundColor: '#EDE8DF', padding: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
             <MenuList items={BAKERY} />
           </motion.div>
         </div>
@@ -463,83 +234,21 @@ export default function MenuPage() {
 
       {/* ── Light Lunch ── */}
       <section style={{ borderTop: '1px solid #EDE8DF' }}>
-        {/* Full-width pizza — no overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          style={{
-            position: 'relative',
-            height: 'clamp(220px, 50vw, 560px)',
-            overflow: 'hidden',
-          }}
-        >
-          <Image
-            src="/images/pizzacafe.jpg"
-            alt="Herb focaccia and latte heart, natural light"
-            fill
-            unoptimized
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
-          />
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+          style={{ position: 'relative', height: 'clamp(200px, 50vw, 560px)', overflow: 'hidden' }}>
+          <Image src="/images/pizzacafe.jpg" alt="Focaccia and latte" fill unoptimized style={{ objectFit: 'cover', objectPosition: 'center' }} />
         </motion.div>
 
-        {/* Section title + list on sage */}
         <div style={{ backgroundColor: '#A8B5A2' }}>
-          <div
-            style={{
-              padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem)',
-              maxWidth: '820px',
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '2rem' }}>
-              <div style={{ width: '4px', backgroundColor: '#2C2C2C', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.25rem' }} />
-              <h2
-                style={{
-                  fontFamily: 'var(--font-syne-var), sans-serif',
-                  fontWeight: 800,
-                  fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-                  lineHeight: 1,
-                  color: '#2C2C2C',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                Light Lunch
-              </h2>
-            </div>
-
+          <div style={{ padding: 'clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem)', maxWidth: '820px' }}>
+            <SectionTitle color="#2C2C2C">Light Lunch</SectionTitle>
             <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
               {LIGHT_LUNCH.map((item, i) => (
-                <motion.li
-                  key={item.name}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                <motion.li key={item.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ padding: '1rem 0', borderBottom: '1px solid rgba(44,44,44,0.15)' }}
-                >
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-syne-var), sans-serif',
-                      fontWeight: 700,
-                      fontSize: '1rem',
-                      color: '#2C2C2C',
-                      marginBottom: '0.2rem',
-                    }}
-                  >
-                    {item.name}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-inter-var), sans-serif',
-                      fontWeight: 300,
-                      fontSize: '0.875rem',
-                      color: '#2C2C2C',
-                      opacity: 0.75,
-                    }}
-                  >
-                    {item.desc}
-                  </p>
+                  style={{ padding: '0.9rem 0', borderBottom: '1px solid rgba(44,44,44,0.15)' }}>
+                  <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>{item.name}</p>
+                  <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.75 }}>{item.desc}</p>
                 </motion.li>
               ))}
             </ul>
@@ -547,17 +256,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <p
-        style={{
-          padding: '1.5rem clamp(1.5rem, 5vw, 4rem) 4rem',
-          fontFamily: 'var(--font-inter-var), sans-serif',
-          fontWeight: 300,
-          fontSize: '0.78rem',
-          color: '#2C2C2C',
-          opacity: 0.45,
-          letterSpacing: '0.04em',
-        }}
-      >
+      <p style={{ padding: '1.5rem clamp(1.25rem, 5vw, 4rem) 4rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.75rem', color: '#2C2C2C', opacity: 0.4, letterSpacing: '0.04em' }}>
         Menu changes with the seasons — ask at the counter.
       </p>
     </main>
