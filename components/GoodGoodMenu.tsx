@@ -37,35 +37,59 @@ export default function GoodGoodMenu() {
 
   return (
     <>
-      <button
+      {/* Trigger — pill top-left, toujours visible */}
+      <motion.button
         onClick={() => setOpen(true)}
         aria-label="Open navigation"
         aria-expanded={open}
+        animate={{ opacity: open ? 0 : 1, pointerEvents: open ? 'none' : 'auto', y: open ? -8 : 0 }}
+        transition={{ duration: 0.25 }}
         style={{
           ...syne,
           position: 'fixed',
-          top: '1.5rem',
-          left: '1.5rem',
+          top: '1.25rem',
+          left: '1.25rem',
           zIndex: 50,
           cursor: 'pointer',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          gap: '6px',
-          opacity: open ? 0 : 1,
-          pointerEvents: open ? 'none' : 'auto',
-          transition: 'opacity 0.2s',
-          background: 'none',
-          border: 'none',
-          padding: '8px',
+          alignItems: 'center',
+          gap: '12px',
+          background: '#2C2C2C',
+          border: '1.5px solid rgba(196, 114, 74, 0.5)',
+          borderRadius: '999px',
+          padding: '10px 18px',
+          boxShadow: '0 2px 16px rgba(0,0,0,0.18)',
         }}
       >
-        <span style={{ fontSize: '0.58rem', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#2C2C2C' }}>
+        {/* GG mark */}
+        <span style={{
+          ...syne,
+          fontSize: '13px',
+          color: '#C4724A',
+          letterSpacing: '0.05em',
+          lineHeight: 1,
+        }}>
+          GG
+        </span>
+        {/* Séparateur */}
+        <span style={{ display: 'block', width: '1px', height: '14px', background: 'rgba(237,232,223,0.2)' }} />
+        {/* Menu text */}
+        <span style={{
+          fontFamily: 'var(--font-syne-var), sans-serif',
+          fontWeight: 700,
+          fontSize: '10px',
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color: '#EDE8DF',
+        }}>
           Menu
         </span>
-        <span style={{ display: 'block', height: '1px', width: '1.75rem', backgroundColor: '#2C2C2C' }} />
-        <span style={{ display: 'block', height: '1px', width: '1.1rem', backgroundColor: '#2C2C2C' }} />
-      </button>
+        {/* Deux traits */}
+        <span style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <span style={{ display: 'block', height: '1.5px', width: '16px', background: '#EDE8DF' }} />
+          <span style={{ display: 'block', height: '1.5px', width: '10px', background: '#EDE8DF' }} />
+        </span>
+      </motion.button>
 
       <AnimatePresence>
         {open && (
