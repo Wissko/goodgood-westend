@@ -104,7 +104,7 @@ export default function StoryPage() {
             </p>
             <p>
               GoodGood is a safe space, a morning haunt, a community hub.{' '}
-              <em style={{ fontStyle: 'normal', color: '#C4724A' }}>
+              <em style={{ fontStyle: 'normal', color: '#F0A830' }}>
                 Bold flavours, great vibes, better coffee.
               </em>
             </p>
@@ -132,7 +132,7 @@ export default function StoryPage() {
                     fontFamily: 'var(--font-syne-var), sans-serif',
                     fontWeight: 800,
                     fontSize: '1rem',
-                    color: '#C4724A',
+                    color: '#F0A830',
                     paddingTop: '0.1rem',
                   }}
                 >
@@ -241,7 +241,7 @@ export default function StoryPage() {
             fontFamily: 'var(--font-syne-var), sans-serif',
             fontWeight: 700,
             fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            color: '#C4724A',
+            color: '#F0A830',
             textAlign: 'center',
             letterSpacing: '0.01em',
             padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 5vw, 4rem)',
@@ -308,7 +308,7 @@ export default function StoryPage() {
               fontSize: '0.82rem',
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
-              color: '#C4724A',
+              color: '#F0A830',
             }}
           >
             — Lachlan Geraghty, co-founder

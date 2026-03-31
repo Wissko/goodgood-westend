@@ -75,7 +75,7 @@ export default function GoodGoodMenu() {
           WebkitTapHighlightColor: 'transparent',
         }}
       >
-        <span style={{ ...syne, fontSize: '13px', color: '#C4724A', letterSpacing: '0.05em', lineHeight: 1 }}>GG</span>
+        <span style={{ ...syne, fontSize: '13px', color: '#F0A830', letterSpacing: '0.05em', lineHeight: 1 }}>GG</span>
         <span style={{ display: 'block', width: '1px', height: '13px', background: 'rgba(237,232,223,0.25)' }} />
         <span style={{
           fontFamily: 'var(--font-syne-var), sans-serif',
@@ -170,7 +170,7 @@ export default function GoodGoodMenu() {
                       fontSize: 'clamp(2rem, 8vw, 5.5rem)',
                       lineHeight: 1.2,
                       padding: 'clamp(0.6rem, 2vw, 1rem) 0',
-                      color: pathname === link.href ? '#C4724A' : '#EDE8DF',
+                      color: pathname === link.href ? '#F0A830' : '#EDE8DF',
                       transition: 'color 0.15s',
                       WebkitTapHighlightColor: 'transparent',
                     }}

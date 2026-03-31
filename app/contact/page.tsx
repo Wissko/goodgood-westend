@@ -98,7 +98,7 @@ export default function ContactPage() {
                   fontFamily: 'var(--font-syne-var), sans-serif',
                   fontWeight: 700,
                   fontSize: '1.5rem',
-                  color: '#C4724A',
+                  color: '#F0A830',
                 }}
               >
                 Got it — thanks!
@@ -195,7 +195,7 @@ export default function ContactPage() {
                     }}
                     onMouseEnter={(e) => {
                       ;(e.currentTarget as HTMLElement).style.backgroundColor =
-                        '#C4724A'
+                        '#F0A830'
                     }}
                     onMouseLeave={(e) => {
                       ;(e.currentTarget as HTMLElement).style.backgroundColor =
@@ -237,7 +237,7 @@ export default function ContactPage() {
                     fontFamily: 'var(--font-syne-var), sans-serif',
                     fontWeight: 700,
                     fontSize: '1.1rem',
-                    color: '#C4724A',
+                    color: '#F0A830',
                   }}
                 >
                   @goodgoodwestend

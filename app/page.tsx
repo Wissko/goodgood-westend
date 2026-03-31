@@ -110,7 +110,7 @@ export default function HomePage() {
                 whiteSpace: 'nowrap',
               }}
               onMouseEnter={(e) => {
-                ;(e.currentTarget as HTMLElement).style.backgroundColor = '#C4724A'
+                ;(e.currentTarget as HTMLElement).style.backgroundColor = '#F0A830'
                 ;(e.currentTarget as HTMLElement).style.color = '#FFFFFF'
               }}
               onMouseLeave={(e) => {

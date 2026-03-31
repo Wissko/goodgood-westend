@@ -32,7 +32,7 @@ const LIGHT_LUNCH: MenuItem[] = [
 function SectionTitle({ children, color = '#2C2C2C' }: { children: React.ReactNode; color?: string }) {
   return (
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '2rem' }}>
-      <div style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.2rem' }} />
+      <div style={{ width: '4px', backgroundColor: '#F0A830', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.2rem' }} />
       <h2 style={{
         fontFamily: 'var(--font-syne-var), sans-serif',
         fontWeight: 800,
@@ -132,7 +132,7 @@ export default function MenuPage() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}
         >
-          <div aria-hidden="true" style={{ width: '4px', backgroundColor: '#C4724A', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.3rem' }} />
+          <div aria-hidden="true" style={{ width: '4px', backgroundColor: '#F0A830', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.3rem' }} />
           <div>
             <h1 style={{
               fontFamily: 'var(--font-syne-var), sans-serif',
@@ -144,7 +144,7 @@ export default function MenuPage() {
             }}>
               The /<br />Menu
             </h1>
-            <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#C4724A', letterSpacing: '0.04em' }}>
+            <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#F0A830', letterSpacing: '0.04em' }}>
               Tim Adams specialty coffee · house-made food · deli counter
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function MenuPage() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           style={{ padding: 'clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3rem)' }}
         >
-          <SectionTitle color="#C4724A">Coffee</SectionTitle>
+          <SectionTitle color="#F0A830">Coffee</SectionTitle>
           <MenuList items={COFFEE} />
         </motion.div>
         <motion.div

@@ -44,7 +44,7 @@ export default function VisitPage() {
             style={{
               display: 'inline-block',
               padding: '0.75rem 1.75rem',
-              backgroundColor: '#C4724A',
+              backgroundColor: '#F0A830',
               color: '#F7F4EF',
               fontFamily: 'var(--font-syne-var), sans-serif',
               fontWeight: 700,
@@ -81,7 +81,7 @@ export default function VisitPage() {
           </h2>
           <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.95rem', color: '#2C2C2C', lineHeight: 1.7 }}>
             <a href="tel:+61466629352" style={{ display: 'block', color: '#2C2C2C' }}>+61 466 629 352</a>
-            <a href="https://instagram.com/goodgoodwestend" target="_blank" rel="noopener noreferrer" style={{ color: '#C4724A' }}>@goodgoodwestend</a>
+            <a href="https://instagram.com/goodgoodwestend" target="_blank" rel="noopener noreferrer" style={{ color: '#F0A830' }}>@goodgoodwestend</a>
           </p>
         </motion.div>
       </div>
