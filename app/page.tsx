@@ -215,7 +215,7 @@ export default function HomePage() {
         {[
           { label: 'Coffee', value: 'Tim Adams specialty coffee' },
           { label: 'Find Us', value: '2/24 Beesley St, West End' },
-          { label: 'Friday', value: '6:00 am – 1:30 pm' },
+          { label: 'Hours', value: 'Mon–Sat 6am–1pm · Sun 7am–12pm' },
         ].map(({ label, value }) => (
           <div key={label} style={{ position: 'relative', zIndex: 1 }}>
             <p style={{
