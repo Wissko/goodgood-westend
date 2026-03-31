@@ -4,7 +4,13 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const HOURS = [
-  { day: 'Friday', hours: '6:00 am – 1:30 pm' },
+  { day: 'Monday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Tuesday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Wednesday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Thursday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Friday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Saturday', hours: '6:00 am – 1:00 pm' },
+  { day: 'Sunday', hours: '7:00 am – 12:00 pm' },
 ]
 
 export default function VisitPage() {
