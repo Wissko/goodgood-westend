@@ -52,24 +52,22 @@ export default function HomePage() {
           }}
         >
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             style={{
               fontFamily: 'var(--font-heading), sans-serif',
               fontWeight: 900,
-              fontSize: 'clamp(3rem, 13vw, 14rem)',
-              lineHeight: 0.88,
+              fontSize: 'clamp(5.5rem, 22vw, 22rem)',
+              lineHeight: 0.82,
               color: '#FFFFFF',
-              letterSpacing: '0.01em',
+              letterSpacing: '-0.01em',
               textTransform: 'uppercase',
               wordBreak: 'keep-all',
-              overflow: 'hidden',
             }}
           >
-            Good
-            <br />
-            Good
+            <span style={{ display: 'block' }}>Good</span>
+            <span style={{ display: 'block', color: '#F0A830' }}>Good</span>
           </motion.h1>
 
           <motion.p
