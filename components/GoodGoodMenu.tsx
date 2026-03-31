@@ -13,9 +13,9 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Say Hi' },
 ] as const
 
-const syne: React.CSSProperties = {
-  fontFamily: 'var(--font-syne-var), sans-serif',
-  fontWeight: 800,
+const heading: React.CSSProperties = {
+  fontFamily: 'var(--font-heading), sans-serif',
+  fontWeight: 900,
 }
 
 export default function GoodGoodMenu() {
@@ -57,7 +57,7 @@ export default function GoodGoodMenu() {
         animate={{ opacity: open ? 0 : 1, pointerEvents: open ? 'none' : 'auto' }}
         transition={{ duration: 0.2 }}
         style={{
-          ...syne,
+          ...heading,
           position: 'fixed',
           top: '1rem',
           left: '1rem',
@@ -75,10 +75,10 @@ export default function GoodGoodMenu() {
           WebkitTapHighlightColor: 'transparent',
         }}
       >
-        <span style={{ ...syne, fontSize: '13px', color: '#F0A830', letterSpacing: '0.05em', lineHeight: 1 }}>GG</span>
+        <span style={{ ...heading, fontSize: '13px', color: '#F0A830', letterSpacing: '0.05em', lineHeight: 1 }}>GG</span>
         <span style={{ display: 'block', width: '1px', height: '13px', background: 'rgba(237,232,223,0.25)' }} />
         <span style={{
-          fontFamily: 'var(--font-syne-var), sans-serif',
+          fontFamily: 'var(--font-heading), sans-serif',
           fontWeight: 700,
           fontSize: '10px',
           letterSpacing: '0.2em',
@@ -136,7 +136,7 @@ export default function GoodGoodMenu() {
                 letterSpacing: '0.26em',
                 textTransform: 'uppercase',
                 color: '#EDE8DF',
-                fontFamily: 'var(--font-syne-var)',
+                fontFamily: 'var(--font-heading)',
                 fontWeight: 700,
               }}>Close</span>
               <span style={{ display: 'block', width: '1.1rem', height: '1px', backgroundColor: '#EDE8DF' }} />
@@ -165,11 +165,13 @@ export default function GoodGoodMenu() {
                   <Link
                     href={link.href}
                     style={{
-                      ...syne,
+                      ...heading,
                       display: 'block',
-                      fontSize: 'clamp(2rem, 8vw, 5.5rem)',
-                      lineHeight: 1.2,
-                      padding: 'clamp(0.6rem, 2vw, 1rem) 0',
+                      fontSize: 'clamp(2.5rem, 10vw, 7rem)',
+                      lineHeight: 1.0,
+                      letterSpacing: '0.01em',
+                      textTransform: 'uppercase',
+                      padding: 'clamp(0.5rem, 1.5vw, 0.85rem) 0',
                       color: pathname === link.href ? '#F0A830' : '#EDE8DF',
                       transition: 'color 0.15s',
                       WebkitTapHighlightColor: 'transparent',
@@ -186,7 +188,7 @@ export default function GoodGoodMenu() {
               style={{
                 padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 6vw, 3.5rem)',
                 color: '#A8B5A2',
-                fontFamily: 'var(--font-inter-var), sans-serif',
+                fontFamily: 'var(--font-body), sans-serif',
                 fontWeight: 300,
                 fontSize: '0.8rem',
                 lineHeight: 1.7,
