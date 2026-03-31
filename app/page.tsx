@@ -76,7 +76,7 @@ export default function HomePage() {
             transition={{ delay: 0.18, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             style={{
               marginTop: '1.5rem',
-              fontFamily: 'var(--font-inter-var), sans-serif',
+              fontFamily: 'var(--font-body), sans-serif',
               fontWeight: 300,
               fontSize: 'clamp(0.65rem, 1.3vw, 0.9rem)',
               letterSpacing: '0.22em',
@@ -100,7 +100,7 @@ export default function HomePage() {
                 padding: '0.85rem 2.25rem',
                 backgroundColor: '#FFFFFF',
                 color: '#2C2C2C',
-                fontFamily: 'var(--font-syne-var), sans-serif',
+                fontFamily: 'var(--font-heading), sans-serif',
                 fontWeight: 700,
                 fontSize: '0.6rem',
                 letterSpacing: '0.22em',
@@ -147,7 +147,7 @@ export default function HomePage() {
         >
           <p
             style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
+              fontFamily: 'var(--font-heading), sans-serif',
               fontWeight: 800,
               fontSize: 'clamp(1.4rem, 3.5vw, 2.25rem)',
               lineHeight: 1.2,
@@ -219,7 +219,7 @@ export default function HomePage() {
         ].map(({ label, value }) => (
           <div key={label} style={{ position: 'relative', zIndex: 1 }}>
             <p style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
+              fontFamily: 'var(--font-heading), sans-serif',
               fontWeight: 700,
               fontSize: '0.58rem',
               letterSpacing: '0.26em',
@@ -231,7 +231,7 @@ export default function HomePage() {
               {label}
             </p>
             <p style={{
-              fontFamily: 'var(--font-inter-var), sans-serif',
+              fontFamily: 'var(--font-body), sans-serif',
               fontWeight: 300,
               color: '#EDE8DF',
               fontSize: '0.95rem',

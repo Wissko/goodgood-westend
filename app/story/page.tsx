@@ -48,15 +48,16 @@ export default function StoryPage() {
           style={{
             position: 'relative',
             zIndex: 1,
-            fontFamily: 'var(--font-syne-var), sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(4rem, 14vw, 12rem)',
-            lineHeight: 0.88,
+            fontFamily: 'var(--font-heading), sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4rem, 16vw, 13rem)',
+            lineHeight: 0.82,
             color: '#EDE8DF',
-            letterSpacing: '-0.03em',
+            letterSpacing: '0.01em',
+            textTransform: 'uppercase',
           }}
         >
-          Our /
+          Our
           <br />
           Story
         </motion.h1>
@@ -79,7 +80,7 @@ export default function StoryPage() {
               display: 'flex',
               flexDirection: 'column',
               gap: '1.75rem',
-              fontFamily: 'var(--font-inter-var), sans-serif',
+              fontFamily: 'var(--font-body), sans-serif',
               fontWeight: 300,
               fontSize: 'clamp(1rem, 1.5vw, 1.1rem)',
               lineHeight: 1.8,
@@ -129,7 +130,7 @@ export default function StoryPage() {
               >
                 <p
                   style={{
-                    fontFamily: 'var(--font-syne-var), sans-serif',
+                    fontFamily: 'var(--font-heading), sans-serif',
                     fontWeight: 800,
                     fontSize: '1rem',
                     color: '#F0A830',
@@ -140,7 +141,7 @@ export default function StoryPage() {
                 </p>
                 <p
                   style={{
-                    fontFamily: 'var(--font-inter-var), sans-serif',
+                    fontFamily: 'var(--font-body), sans-serif',
                     fontWeight: 300,
                     fontSize: '0.92rem',
                     lineHeight: 1.75,
@@ -238,7 +239,7 @@ export default function StoryPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
           style={{
-            fontFamily: 'var(--font-syne-var), sans-serif',
+            fontFamily: 'var(--font-heading), sans-serif',
             fontWeight: 700,
             fontSize: 'clamp(1rem, 2vw, 1.5rem)',
             color: '#F0A830',
@@ -290,7 +291,7 @@ export default function StoryPage() {
         >
           <p
             style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
+              fontFamily: 'var(--font-heading), sans-serif',
               fontWeight: 800,
               fontSize: 'clamp(1.6rem, 4vw, 3rem)',
               lineHeight: 1.25,
@@ -303,7 +304,7 @@ export default function StoryPage() {
           <p
             style={{
               marginTop: '2rem',
-              fontFamily: 'var(--font-inter-var), sans-serif',
+              fontFamily: 'var(--font-body), sans-serif',
               fontWeight: 300,
               fontSize: '0.82rem',
               letterSpacing: '0.18em',

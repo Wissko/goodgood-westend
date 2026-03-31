@@ -19,7 +19,7 @@ export default function ContactPage() {
     backgroundColor: 'transparent',
     border: 'none',
     borderBottom: '1px solid #2C2C2C',
-    fontFamily: 'var(--font-inter-var), sans-serif',
+    fontFamily: 'var(--font-body), sans-serif',
     fontWeight: 300,
     fontSize: '1rem',
     color: '#2C2C2C',
@@ -62,12 +62,13 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: 'var(--font-syne-var), sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(3.5rem, 10vw, 8rem)',
-            lineHeight: 0.92,
+            fontFamily: 'var(--font-heading), sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4rem, 16vw, 13rem)',
+            lineHeight: 0.82,
             color: '#2C2C2C',
-            letterSpacing: '-0.02em',
+            letterSpacing: '0.01em',
+            textTransform: 'uppercase',
             marginBottom: '4rem',
           }}
         >
@@ -95,7 +96,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 style={{
-                  fontFamily: 'var(--font-syne-var), sans-serif',
+                  fontFamily: 'var(--font-heading), sans-serif',
                   fontWeight: 700,
                   fontSize: '1.5rem',
                   color: '#F0A830',
@@ -112,7 +113,7 @@ export default function ContactPage() {
                   <label
                     style={{
                       display: 'block',
-                      fontFamily: 'var(--font-syne-var), sans-serif',
+                      fontFamily: 'var(--font-heading), sans-serif',
                       fontWeight: 700,
                       fontSize: '0.58rem',
                       letterSpacing: '0.22em',
@@ -135,7 +136,7 @@ export default function ContactPage() {
                   <label
                     style={{
                       display: 'block',
-                      fontFamily: 'var(--font-syne-var), sans-serif',
+                      fontFamily: 'var(--font-heading), sans-serif',
                       fontWeight: 700,
                       fontSize: '0.58rem',
                       letterSpacing: '0.22em',
@@ -158,7 +159,7 @@ export default function ContactPage() {
                   <label
                     style={{
                       display: 'block',
-                      fontFamily: 'var(--font-syne-var), sans-serif',
+                      fontFamily: 'var(--font-heading), sans-serif',
                       fontWeight: 700,
                       fontSize: '0.58rem',
                       letterSpacing: '0.22em',
@@ -184,7 +185,7 @@ export default function ContactPage() {
                       padding: '0.85rem 2.25rem',
                       backgroundColor: '#2C2C2C',
                       color: '#EDE8DF',
-                      fontFamily: 'var(--font-syne-var), sans-serif',
+                      fontFamily: 'var(--font-heading), sans-serif',
                       fontWeight: 700,
                       fontSize: '0.62rem',
                       letterSpacing: '0.22em',
@@ -218,7 +219,7 @@ export default function ContactPage() {
               <div>
                 <p
                   style={{
-                    fontFamily: 'var(--font-syne-var), sans-serif',
+                    fontFamily: 'var(--font-heading), sans-serif',
                     fontWeight: 700,
                     fontSize: '0.58rem',
                     letterSpacing: '0.22em',
@@ -234,7 +235,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontFamily: 'var(--font-syne-var), sans-serif',
+                    fontFamily: 'var(--font-heading), sans-serif',
                     fontWeight: 700,
                     fontSize: '1.1rem',
                     color: '#F0A830',
@@ -246,7 +247,7 @@ export default function ContactPage() {
               <div>
                 <p
                   style={{
-                    fontFamily: 'var(--font-syne-var), sans-serif',
+                    fontFamily: 'var(--font-heading), sans-serif',
                     fontWeight: 700,
                     fontSize: '0.58rem',
                     letterSpacing: '0.22em',
@@ -260,7 +261,7 @@ export default function ContactPage() {
                 <a
                   href="tel:+61466629352"
                   style={{
-                    fontFamily: 'var(--font-inter-var), sans-serif',
+                    fontFamily: 'var(--font-body), sans-serif',
                     fontWeight: 300,
                     fontSize: '1rem',
                     color: '#2C2C2C',
@@ -272,7 +273,7 @@ export default function ContactPage() {
               <div>
                 <p
                   style={{
-                    fontFamily: 'var(--font-syne-var), sans-serif',
+                    fontFamily: 'var(--font-heading), sans-serif',
                     fontWeight: 700,
                     fontSize: '0.58rem',
                     letterSpacing: '0.22em',
@@ -285,7 +286,7 @@ export default function ContactPage() {
                 </p>
                 <p
                   style={{
-                    fontFamily: 'var(--font-inter-var), sans-serif',
+                    fontFamily: 'var(--font-body), sans-serif',
                     fontWeight: 300,
                     fontSize: '0.9rem',
                     color: '#2C2C2C',

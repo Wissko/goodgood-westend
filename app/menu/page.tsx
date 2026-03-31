@@ -34,7 +34,7 @@ function SectionTitle({ children, color = '#2C2C2C' }: { children: React.ReactNo
     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '2rem' }}>
       <div style={{ width: '4px', backgroundColor: '#F0A830', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.2rem' }} />
       <h2 style={{
-        fontFamily: 'var(--font-syne-var), sans-serif',
+        fontFamily: 'var(--font-heading), sans-serif',
         fontWeight: 800,
         fontSize: 'clamp(1.8rem, 5vw, 3.2rem)',
         lineHeight: 1,
@@ -59,10 +59,10 @@ function MenuList({ items, borderColor = '#EDE8DF' }: { items: MenuItem[]; borde
           transition={{ delay: i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           style={{ padding: '0.9rem 0', borderBottom: `1px solid ${borderColor}` }}
         >
-          <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>
+          <p style={{ fontFamily: 'var(--font-heading), sans-serif', fontWeight: 900, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>
             {item.name}
           </p>
-          <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.65 }}>
+          <p style={{ fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.65 }}>
             {item.desc}
           </p>
         </motion.li>
@@ -135,16 +135,17 @@ export default function MenuPage() {
           <div aria-hidden="true" style={{ width: '4px', backgroundColor: '#F0A830', alignSelf: 'stretch', flexShrink: 0, marginTop: '0.3rem' }} />
           <div>
             <h1 style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 800,
-              fontSize: 'clamp(3.5rem, 12vw, 10rem)',
-              lineHeight: 0.9,
+              fontFamily: 'var(--font-heading), sans-serif',
+              fontWeight: 900,
+              fontSize: 'clamp(4rem, 16vw, 13rem)',
+              lineHeight: 0.82,
               color: '#2C2C2C',
-              letterSpacing: '-0.03em',
+              letterSpacing: '0.01em',
+              textTransform: 'uppercase',
             }}>
-              The /<br />Menu
+              The<br />Menu
             </h1>
-            <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#F0A830', letterSpacing: '0.04em' }}>
+            <p style={{ marginTop: '1.25rem', fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#F0A830', letterSpacing: '0.04em' }}>
               Tim Adams specialty coffee · house-made food · deli counter
             </p>
           </div>
@@ -182,22 +183,22 @@ export default function MenuPage() {
             <div style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
               <Image src="/images/avocadotoast.jpg" alt="Avocado toast" fill unoptimized style={{ objectFit: 'cover' }} />
             </div>
-            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Avocado Toast</p>
-            <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Sourdough, smashed avo, feta, balsamic, seeds</p>
+            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-heading), sans-serif', fontWeight: 900, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Avocado Toast</p>
+            <p style={{ fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Sourdough, smashed avo, feta, balsamic, seeds</p>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.08, duration: 0.4 }}>
             <div style={{ position: 'relative', aspectRatio: '1', overflow: 'hidden' }}>
               <Image src="/images/burger.jpg" alt="Bacon egg cheese" fill unoptimized style={{ objectFit: 'cover' }} />
             </div>
-            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Bacon, Egg &amp; Cheese</p>
-            <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Brioche sesame bun, runny yolk, house-made sauce</p>
+            <p style={{ marginTop: '0.75rem', fontFamily: 'var(--font-heading), sans-serif', fontWeight: 900, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>Bacon, Egg &amp; Cheese</p>
+            <p style={{ fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Brioche sesame bun, runny yolk, house-made sauce</p>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.14, duration: 0.4 }}>
             <div style={{ aspectRatio: '1', backgroundColor: '#EDE8DF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 'clamp(1.5rem, 4vw, 2.5rem)', textAlign: 'center' }}>
-              <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 800, fontSize: 'clamp(0.95rem, 2.5vw, 1.3rem)', color: '#2C2C2C', marginBottom: '0.5rem', lineHeight: 1.2 }}>House-Made Oats</p>
-              <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Slow-cooked, seasonal fruit, honey</p>
+              <p style={{ fontFamily: 'var(--font-heading), sans-serif', fontWeight: 900, fontSize: 'clamp(0.95rem, 2.5vw, 1.3rem)', color: '#2C2C2C', marginBottom: '0.5rem', lineHeight: 1.2 }}>House-Made Oats</p>
+              <p style={{ fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.82rem', color: '#2C2C2C', opacity: 0.65 }}>Slow-cooked, seasonal fruit, honey</p>
             </div>
           </motion.div>
         </div>
@@ -247,8 +248,8 @@ export default function MenuPage() {
                 <motion.li key={item.name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   style={{ padding: '0.9rem 0', borderBottom: '1px solid rgba(44,44,44,0.15)' }}>
-                  <p style={{ fontFamily: 'var(--font-syne-var), sans-serif', fontWeight: 700, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>{item.name}</p>
-                  <p style={{ fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.75 }}>{item.desc}</p>
+                  <p style={{ fontFamily: 'var(--font-heading), sans-serif', fontWeight: 900, fontSize: '0.95rem', color: '#2C2C2C', marginBottom: '0.2rem' }}>{item.name}</p>
+                  <p style={{ fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.85rem', color: '#2C2C2C', opacity: 0.75 }}>{item.desc}</p>
                 </motion.li>
               ))}
             </ul>
@@ -256,7 +257,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <p style={{ padding: '1.5rem clamp(1.25rem, 5vw, 4rem) 4rem', fontFamily: 'var(--font-inter-var), sans-serif', fontWeight: 300, fontSize: '0.75rem', color: '#2C2C2C', opacity: 0.4, letterSpacing: '0.04em' }}>
+      <p style={{ padding: '1.5rem clamp(1.25rem, 5vw, 4rem) 4rem', fontFamily: 'var(--font-body), sans-serif', fontWeight: 300, fontSize: '0.75rem', color: '#2C2C2C', opacity: 0.4, letterSpacing: '0.04em' }}>
         Menu changes with the seasons — ask at the counter.
       </p>
     </main>
