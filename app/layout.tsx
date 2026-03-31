@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Syne, Inter } from 'next/font/google'
+import { Barlow_Condensed, DM_Sans } from 'next/font/google'
 import './globals.css'
 import GoodGoodMenu from '@/components/GoodGoodMenu'
 
-const syne = Syne({
+const barlowCondensed = Barlow_Condensed({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-syne-var',
+  weight: ['700', '800', '900'],
+  variable: '--font-heading',
   display: 'swap',
 })
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
-  variable: '--font-inter-var',
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -33,7 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
+    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable}`}>
       <body>
         <GoodGoodMenu />
         {children}

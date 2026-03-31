@@ -56,17 +56,18 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: 'var(--font-syne-var), sans-serif',
-              fontWeight: 800,
+              fontFamily: 'var(--font-heading), sans-serif',
+              fontWeight: 900,
               fontSize: 'clamp(3rem, 13vw, 14rem)',
               lineHeight: 0.88,
               color: '#FFFFFF',
-              letterSpacing: '-0.03em',
+              letterSpacing: '0.01em',
+              textTransform: 'uppercase',
               wordBreak: 'keep-all',
               overflow: 'hidden',
             }}
           >
-            Good /
+            Good
             <br />
             Good
           </motion.h1>
